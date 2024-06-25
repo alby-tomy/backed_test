@@ -1,0 +1,44 @@
+/* index.html form */
+.form-container{
+    font-family: Arial, Helvetica, sans-serif;
+    border: 1px solid black;
+    width: 50%;
+    margin-top: 15%;
+    padding: 5%;
+
+}
+
+.field-box {
+    margin-bottom: 15px;
+}
+.field-box label {
+    display: block;
+    margin-bottom: 5px;
+}
+.field-box input[type="text"],
+.field-box input[type="number"],
+.field-box input[type="radio"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.field-box input[type="radio"] {
+    width: auto;
+    margin-right: 8px;
+}
+
+.form-action {
+    text-align: center;
+}
+.form-action button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #28a745;
+    color: white;
+    cursor: pointer;
+}
+.form-action button:hover {
+    background-color: #218838;
+}

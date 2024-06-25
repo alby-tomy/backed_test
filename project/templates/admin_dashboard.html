@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+</head>
+<body>
+    <h2>Admin Dashboard</h2>
+    <h3>Form Entries</h3>
+    <ul>
+        {% for entry in form_entries %}
+            <li>{{ entry.name }} - {{ entry.company_name }} - {{ entry.email }} - {{ entry.d_rating }} - {{ entry.t_rating }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

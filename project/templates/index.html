@@ -1,0 +1,70 @@
+{%load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}"
+  </head>
+  <body>
+    <center>
+      <form method="POST" action="" class="form-container">
+        {% csrf_token %}
+        
+        <div class="field-box">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" value="{{ request.POST.name }}" required />
+            {% for error in form.name.errors %}
+                <div class="error">{{ error }}</div>
+            {% endfor %}
+        </div>
+
+        <div class="field-box">
+            <label for="company_name">Company Name</label>
+            <input type="text" id="company_name" name="company_name" placeholder="Enter your company name" value="{{ request.POST.company_name }}" required />
+            {% for error in form.company_name.errors %}
+                <div class="error">{{ error }}</div>
+            {% endfor %}
+        </div>
+
+        <div class="field-box">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" value="{{ request.POST.email }}" required />
+            {% for error in form.email.errors %}
+                <div class="error">{{ error }}</div>
+            {% endfor %}
+        </div>
+
+        <div class="field-box">
+            <label for="d_rating">Rate our overall performance for the delivered project</label>
+            <div>
+                <input type="radio" id="d_good" name="d_rating" value="G" {% if request.POST.d_rating == 'G' %}checked{% endif %} required /> Good
+                <input type="radio" id="d_moderate" name="d_rating" value="M" {% if request.POST.d_rating == 'M' %}checked{% endif %} required /> Moderate
+                <input type="radio" id="d_bad" name="d_rating" value="B" {% if request.POST.d_rating == 'B' %}checked{% endif %} required /> Bad
+            </div>
+            {% for error in form.d_rating.errors %}
+                <div class="error">{{ error }}</div>
+            {% endfor %}
+        </div>
+
+        <div class="field-box">
+            <label for="t_rating">How would you rate the timeliness of our delivery?</label>
+            <div>
+                <input type="radio" id="t_good" name="t_rating" value="G" {% if request.POST.t_rating == 'G' %}checked{% endif %} required /> Good
+                <input type="radio" id="t_moderate" name="t_rating" value="M" {% if request.POST.t_rating == 'M' %}checked{% endif %} required /> Moderate
+                <input type="radio" id="t_bad" name="t_rating" value="B" {% if request.POST.t_rating == 'B' %}checked{% endif %} required /> Bad
+            </div>
+            {% for error in form.t_rating.errors %}
+                <div class="error">{{ error }}</div>
+            {% endfor %}
+        </div>
+
+        <div class="form-action">
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+    </center>
+  </body>
+</html>
